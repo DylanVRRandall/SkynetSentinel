@@ -8,7 +8,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import java.io.IOException;
-import java.util.*;
 import com.google.gson.Gson;
 import com.google.randalldylan101.sentinel.beans.RobotCPU;
 
@@ -24,11 +23,12 @@ public class RobotCPUService
        HttpEntity entity = response.getEntity();
        if (entity != null) 
        {
-        RobotCPU robotCPUs = new Gson().fromJson(EntityUtils.toString(entity), RobotCPU.class);
+            RobotCPU[] robotCPUs = new Gson().fromJson(EntityUtils.toString(entity), RobotCPU[].class);
 
-        //    if (Objects.nonNull(robotCPUs) && !robotCPUs.isEmpty())
-        //         robotCPUs.forEach(System.out::println);
-        }
+            for (RobotCPU robotCPU : robotCPUs)
+                System.out.println(robotCPU);
+
+       }
     }
    }
 }

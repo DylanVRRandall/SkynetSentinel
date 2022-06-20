@@ -1,0 +1,12 @@
+<persistence-unit name="SentinelPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+        <property name="javax.persistence.jdbc.driver" value=""/>
+        <property name="javax.persistence.jdbc.url" value=""/>
+        <property name="javax.persistence.jdbc.user" value=""/>
+        <property name="javax.persistence.jdbc.password" value=""/>
+    </properties>
+</persistence-unit>
+  
+  

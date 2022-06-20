@@ -1,10 +1,29 @@
 package com.google.randalldylan101.sentinel.beans;
 
-@Post
+import lombok.Getter;
+import lombok.Setter;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Column;
+
+
+@Entity
+@Getter
+@Setter
 public class Survivor 
 {
-    private String name,id;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
+
+    @Column
+    private String name,identification;
+
+    @Column
     private int age;
-    private 
-    
+
+    @Column
+    private float lat,lon;
 }

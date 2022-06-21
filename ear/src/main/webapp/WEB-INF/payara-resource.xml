@@ -1,0 +1,14 @@
+    <!DOCTYPE resources  PUBLIC  "-//Payara.fish//DTD Payara Server 4 Resource Definitions//EN"  "https://raw.githubusercontent.com/payara/Payara-Community-Documentation/master/docs/modules/ROOT/pages/schemas/payara-resources_1_6.dtd">
+<resources>
+	<jdbc-resource pool-name="MyAppDS"
+		jndi-name="java:app/jdbc/MyApp"/>
+	<jdbc-connection-pool name="MySQLPool"
+		res-type="javax.sql.DataSource"
+		datasource-classname="org.apache.derby.jdbc.EmbeddedDriver">
+		<property name="url"
+			value="jdbc:derby:SkynetSentinel;create=true" />
+		<property name="User" value="root"></property>
+		<property name="Password" value="root"></property>
+		<property name="DatabaseName" value="myapp_db"></property>
+	</jdbc-connection-pool>
+</resources>

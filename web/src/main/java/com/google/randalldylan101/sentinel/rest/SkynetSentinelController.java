@@ -19,6 +19,15 @@ import com.google.randalldylan101.sentinel.entities.Survivor;
 @Path("/survivors")
 public class SkynetSentinelController {
 
+	public SkynetSentinelController()
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 	private EntityManager entityManager = Persistence.createEntityManagerFactory("my-app").createEntityManager();
 
 	@POST
@@ -57,7 +66,7 @@ public class SkynetSentinelController {
 	public Response get() 
 	{
 		entityManager.getTransaction().begin();
-		List<Survivor> ls = entityManager.createNamedQuery("suvivorGetAll").getResultList();
+		List<Survivor> ls = entityManager.createNamedQuery("survivorGetAll").getResultList();
 		entityManager.getTransaction().commit();
 		return Response.ok(ls).build();
 	}

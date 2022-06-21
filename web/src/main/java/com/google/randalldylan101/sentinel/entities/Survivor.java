@@ -18,8 +18,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@NamedQueries({@NamedQuery(name = "suvivorGetByName",query = "select s from Survivor s where s.name = ?1"),
-	@NamedQuery(name = "suvivorGetAll",query = "select s from Survivor s")})
+@NamedQueries({@NamedQuery(name = "survivorGetByName",query = "select s from Survivor s where s.name = ?1"),
+	@NamedQuery(name = "survivorGetAll",query = "select s from Survivor s")})
 public class Survivor 
 {
     @Id

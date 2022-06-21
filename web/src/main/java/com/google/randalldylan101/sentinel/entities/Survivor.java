@@ -1,23 +1,29 @@
 package com.google.randalldylan101.sentinel.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Column;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import java.util.List;
-import com.google.randalldylan101.sentinel.entities.SurvivorResource;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@NamedQueries({@NamedQuery(name = "suvivorGetByName",query = "select s from Survivor s where s.name = ?1"),
+	@NamedQuery(name = "suvivorGetAll",query = "select s from Survivor s")})
 public class Survivor 
 {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
@@ -28,8 +34,12 @@ public class Survivor
 
     @Column
     private float lat,lon;
+    
+    
+    @Column
+    private boolean infected;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<SurvivorResource> survivorResources;
     
 }

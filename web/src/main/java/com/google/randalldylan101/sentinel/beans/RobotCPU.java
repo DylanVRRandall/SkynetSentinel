@@ -1,6 +1,5 @@
 package com.google.randalldylan101.sentinel.beans;
 
-import com.google.randalldylan101.sentinel.enums.RobotCPUEnum;
 import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +8,6 @@ import lombok.Setter;
 @Setter
 public class RobotCPU 
 {
-    private String model,serialNumber;
+    private String model,serialNumber,category;
     private Date manufacturedDate;
-    private RobotCPUEnum category;
 }

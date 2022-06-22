@@ -16,9 +16,9 @@ http://localhost:8080/skynetsentinelweb/sentinel/application.wadl
 
 The following URLs provide the requested functionality:
 
-1. Add Survivor : http://localhost:8080/skynetsentinelweb/sentinel/survivors/add (HTTP POST)
-2. Update Survivor Location : http://localhost:8080/skynetsentinelweb/sentinel/survivors/update (HTTP POST)
-3. Flag Survivor as infected : http://localhost:8080/skynetsentinelweb/sentinel/survivors/flag (HTTP POST)
+1. Add Survivor : http://localhost:8080/skynetsentinelweb/sentinel/survivors/add (HTTP POST) (Survivor.java)
+2. Update Survivor Location : http://localhost:8080/skynetsentinelweb/sentinel/survivors/update (HTTP POST) (Survivor.java)
+3. Flag Survivor as infected : http://localhost:8080/skynetsentinelweb/sentinel/survivors/flag (HTTP POST) (Survivor.java)
 4. Percentage of infected survivors : http://localhost:8080/skynetsentinelweb/sentinel/reporting/count/infected (HTTP GET)
 5. Percentage of non-infected survivors : http://localhost:8080/skynetsentinelweb/sentinel/reporting/count/noninfected (HTTP GET)
 6. List of infected survivors : http://localhost:8080/skynetsentinelweb/sentinel/reporting/get/infected (HTTP GET)

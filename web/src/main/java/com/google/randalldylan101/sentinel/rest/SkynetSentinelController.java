@@ -59,15 +59,4 @@ public class SkynetSentinelController {
 		entityManager.merge(survivor);
 		return Response.ok("Survivor flagged as infected!").build();
 	}
-	
-	@GET
-	@Path("/get")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response get() 
-	{
-		entityManager.getTransaction().begin();
-		List<Survivor> ls = entityManager.createNamedQuery("survivorGetAll").getResultList();
-		entityManager.getTransaction().commit();
-		return Response.ok(ls).build();
-	}
 }

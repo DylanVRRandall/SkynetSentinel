@@ -19,7 +19,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @NamedQueries({@NamedQuery(name = "survivorGetByName",query = "select s from Survivor s where s.name = ?1"),
-	@NamedQuery(name = "survivorGetAll",query = "select s from Survivor s")})
+        @NamedQuery(name = "survivorGetInfected",query = "select s from Survivor s where s.infected = ?1"),
+        @NamedQuery(name = "survivorGetInfectedCount",query = "select count(s.id) from Survivor s where s.infected = ?1"),
+        @NamedQuery(name = "survivorGetAllCount",query = "select count(s.id) from Survivor s")})
 public class Survivor 
 {
     @Id
@@ -34,8 +36,7 @@ public class Survivor
 
     @Column
     private float lat,lon;
-    
-    
+
     @Column
     private boolean infected;
 

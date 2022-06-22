@@ -15,20 +15,17 @@ import com.google.gson.Gson;
 import com.google.randalldylan101.sentinel.beans.RobotCPU;
 
 public class RobotCPUService {
-	public Response get() throws IOException {
+	public RobotCPU[] get() throws IOException {
 		HttpGet request = new HttpGet("https://robotstakeover20210903110417.azurewebsites.net/robotcpu");
 
 		try (CloseableHttpClient httpClient = HttpClients.createDefault();
 				CloseableHttpResponse response = httpClient.execute(request)) {
 
 			HttpEntity entity = response.getEntity();
-			if (entity != null) {
-				RobotCPU[] robotCPUs = new Gson().fromJson(EntityUtils.toString(entity), RobotCPU[].class);
-				return Response.ok(robotCPUs).build();
+			if (entity != null)
+				return new Gson().fromJson(EntityUtils.toString(entity), RobotCPU[].class);
 
-			}
-
-			return Response.serverError().build();
+			return null;
 		}
 	}
 }

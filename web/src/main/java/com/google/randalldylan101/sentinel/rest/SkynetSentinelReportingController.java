@@ -14,7 +14,7 @@ import java.util.List;
 @Path("/reporting")
 public class SkynetSentinelReportingController
 {
-    private EntityManager entityManager = Persistence.createEntityManagerFactory("my-app").createEntityManager();
+    private final EntityManager entityManager = Persistence.createEntityManagerFactory("my-app").createEntityManager();
 
     @GET
     @Path("/count/infected")

@@ -28,7 +28,7 @@ public class SkynetSentinelController {
 		}
 	}
 
-	private EntityManager entityManager = Persistence.createEntityManagerFactory("my-app").createEntityManager();
+	private final EntityManager entityManager = Persistence.createEntityManagerFactory("my-app").createEntityManager();
 
 	@POST
 	@Path("/add")

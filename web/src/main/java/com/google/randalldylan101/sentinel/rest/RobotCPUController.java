@@ -25,13 +25,13 @@ public class RobotCPUController
     */
    @GET 
    @Path("/get") 
-   @Produces(MediaType.TEXT_HTML)
+   @Produces(MediaType.APPLICATION_JSON)
    public Response get() throws IOException
    {
       RobotCPU[] robotCPUS = new RobotCPUService().get();
 
       if (robotCPUS != null && robotCPUS.length > 0)
-         return Response.ok(Arrays.stream(robotCPUS).sorted(Comparator.comparing(RobotCPU::getModel)).collect(Collectors.toList())).build();
+         return Response.ok(Arrays.stream(robotCPUS).sorted(Comparator.comparing(RobotCPU::getCategory)).collect(Collectors.toList())).build();
 
       return Response.serverError().build();
    }  

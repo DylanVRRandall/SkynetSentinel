@@ -19,8 +19,10 @@ public class Survivor
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String name;
+
     @Column(unique=true)
-    private String name,identification;
+    private String identification;
 
     @Column
     private int age;
@@ -31,6 +33,7 @@ public class Survivor
     @Column
     private boolean infected;
 
+    @JoinColumn
     @OneToMany(cascade = CascadeType.ALL)
     private List<SurvivorResource> survivorResources;
     

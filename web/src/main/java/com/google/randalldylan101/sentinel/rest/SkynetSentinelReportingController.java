@@ -25,7 +25,7 @@ public class SkynetSentinelReportingController
         Long infectedCount = (Long)entityManager.createNamedQuery("survivorGetInfectedCount").setParameter(1,Boolean.TRUE).getSingleResult();
         Long all = (Long)entityManager.createNamedQuery("survivorGetAllCount").getSingleResult();
         entityManager.getTransaction().commit();
-        return Response.ok(String.format("%d Percent Infected (%d of %d people)",(infectedCount*100)/all,infectedCount,all)).build();
+        return Response.ok(String.format("%d Percent Infected (%d of %d people)",percentage(infectedCount,all),infectedCount,all)).build();
     }
 
     @GET

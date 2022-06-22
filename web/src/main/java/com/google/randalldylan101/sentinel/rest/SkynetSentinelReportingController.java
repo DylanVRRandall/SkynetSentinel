@@ -37,7 +37,7 @@ public class SkynetSentinelReportingController
         Long nonInfectedcount = (Long)entityManager.createNamedQuery("survivorGetInfectedCount").setParameter(1,Boolean.FALSE).getSingleResult();
         Long all = (Long)entityManager.createNamedQuery("survivorGetAllCount").getSingleResult();
         entityManager.getTransaction().commit();
-        return Response.ok(String.format("%d Percent Non-Infected (%d of %d people)",(nonInfectedcount*100)/all,nonInfectedcount,all)).build();
+        return Response.ok(String.format("%d Percent Non-Infected (%d of %d people)",percentage(nonInfectedcount,all),nonInfectedcount,all)).build();
     }
 
     @GET
@@ -60,5 +60,10 @@ public class SkynetSentinelReportingController
         List<Survivor> nonInfectedHumans = entityManager.createNamedQuery("survivorGetInfected").setParameter(1,Boolean.FALSE).getResultList();
         entityManager.getTransaction().commit();
         return Response.ok(nonInfectedHumans).build();
+    }
+
+    private int percentage(Long a, Long b)
+    {
+        return (Long.valueOf((a * 100) / b)).intValue();
     }
 }

@@ -25,4 +25,4 @@ The following URLs provide the requested functionality:
 7. List of non-infected survivors : http://localhost:8080/skynetsentinelweb/sentinel/reporting/get/noninfected (HTTP GET)
 8. List of robots : http://localhost:8080/skynetsentinelweb/sentinel/robots/get (HTTP GET)
 
-I did not have time to set up Kubernetes on my machine.
+TODO I did not have time to set up Kubernetes on my machine.

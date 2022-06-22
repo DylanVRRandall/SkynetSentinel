@@ -28,7 +28,7 @@ public class Survivor
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Column(unique=true)
     private String name,identification;
 
     @Column
